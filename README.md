@@ -1,9 +1,5 @@
 # devenv
 
-- dotnet
-- python
-
-
 ## nix develop
 
 ```bash
@@ -18,14 +14,8 @@ Target latest
 use flake "github:csvenke/devenv#python"
 ```
 
-Target branch
+Target version
 
 ```sh
-use flake "github:csvenke/devenv/main#python"
-```
-
-Target commit
-
-```sh
-use flake "github:csvenke/devenv/63a0287c2ac486129b90079f46431689fad9dbd3#python"
+use flake "github:csvenke/devenv/v1.0.0#python"
 ```
