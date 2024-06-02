@@ -17,6 +17,7 @@
           devShells.dotnet = callPackage ./packages/dotnet { };
           devShells.fnm-use = callPackage ./packages/fnm-use { };
           devShells.node = callPackage ./packages/node { };
+          devShells.java = callPackage ./packages/java { };
           devShells.python = callPackage ./packages/python { };
         };
     };
