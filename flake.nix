@@ -18,6 +18,7 @@
           devShells.fnm-use = callPackage ./packages/fnm-use { };
           devShells.node = callPackage ./packages/node { };
           devShells.java = callPackage ./packages/java { };
+          devShells.haskell = callPackage ./packages/haskell { };
           devShells.python = callPackage ./packages/python { };
         };
     };
