@@ -21,5 +21,11 @@
           devShells.haskell = callPackage ./packages/haskell { };
           devShells.python = callPackage ./packages/python { };
         };
+      flake = {
+        templates.default = {
+          path = ./templates/default;
+          description = "Default template";
+        };
+      };
     };
 }
