@@ -20,6 +20,7 @@
           devShells.java = callPackage ./packages/java { };
           devShells.haskell = callPackage ./packages/haskell { };
           devShells.python = callPackage ./packages/python { };
+          devShells.angular = callPackage ./packages/angular { };
         };
       flake = {
         templates.default = {
