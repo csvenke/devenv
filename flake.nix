@@ -14,18 +14,27 @@
           inherit (pkgs) callPackage;
         in
         {
-          devShells.dotnet = callPackage ./packages/dotnet { };
-          devShells.fnm-use = callPackage ./packages/fnm-use { };
-          devShells.node = callPackage ./packages/node { };
-          devShells.java = callPackage ./packages/java { };
-          devShells.haskell = callPackage ./packages/haskell { };
-          devShells.python = callPackage ./packages/python { };
-          devShells.angular = callPackage ./packages/angular { };
+          packages = {
+            format = callPackage ./tools/format { };
+            release = callPackage ./tools/release { };
+          };
+
+          devShells = {
+            dotnet = callPackage ./packages/dotnet { };
+            fnm-use = callPackage ./packages/fnm-use { };
+            node = callPackage ./packages/node { };
+            java = callPackage ./packages/java { };
+            haskell = callPackage ./packages/haskell { };
+            python = callPackage ./packages/python { };
+            angular = callPackage ./packages/angular { };
+          };
         };
       flake = {
-        templates.default = {
-          path = ./templates/default;
-          description = "Default template";
+        templates = {
+          default = {
+            path = ./templates/default;
+            description = "Default template";
+          };
         };
       };
     };
