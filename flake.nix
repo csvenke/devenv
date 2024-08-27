@@ -28,6 +28,7 @@
             haskell = callPackage ./packages/haskell { };
             python = callPackage ./packages/python { };
             angular = callPackage ./packages/angular { inherit language-servers; };
+            rust = callPackage ./packages/rust { };
           };
         };
       flake = {
