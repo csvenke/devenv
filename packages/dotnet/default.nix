@@ -11,7 +11,12 @@ let
 in
 
 pkgs.mkShell {
-  packages = [ dotnet ];
+  packages = [
+    dotnet
+    pkgs.csharpier
+    pkgs.dotnet-sdk
+    pkgs.omnisharp-roslyn
+  ];
   shellHook = ''
     export DOTNET_ROOT=${dotnet}
   '';
