@@ -29,6 +29,7 @@
             python = callPackage ./packages/python { };
             angular = callPackage ./packages/angular { inherit language-servers; };
             rust = callPackage ./packages/rust { };
+            gleam = callPackage ./packages/gleam { };
           };
         };
       flake = {
