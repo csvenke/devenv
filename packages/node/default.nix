@@ -1,12 +1,14 @@
 { pkgs }:
 
 pkgs.mkShell {
-  packages = [
-    pkgs.nodejs
-    pkgs.fnm
-    pkgs.bun
-    pkgs.yarn
-    pkgs.nodePackages.pnpm
+  packages = with pkgs; [
+    nodejs
+    fnm
+    bun
+    yarn
+    nodePackages.pnpm
+
+    (callPackage ./scripts/npm-run.nix { })
   ];
 
   shellHook = /* bash */ ''
