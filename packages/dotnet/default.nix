@@ -14,7 +14,6 @@ pkgs.mkShell {
   packages = [
     dotnet
     pkgs.csharpier
-    pkgs.dotnet-sdk
     pkgs.omnisharp-roslyn
   ];
   shellHook = ''
