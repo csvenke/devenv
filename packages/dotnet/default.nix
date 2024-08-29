@@ -1,9 +1,7 @@
 { pkgs }:
 
-with pkgs.dotnetCorePackages;
-
 let
-  dotnet = (combinePackages [
+  dotnet = with pkgs.dotnetCorePackages; (combinePackages [
     sdk_6_0
     sdk_7_0
     sdk_8_0
@@ -11,10 +9,12 @@ let
 in
 
 pkgs.mkShell {
-  packages = [
+  packages = with pkgs; [
     dotnet
-    pkgs.csharpier
-    pkgs.omnisharp-roslyn
+    csharpier
+    omnisharp-roslyn
+
+    (pkgs.callPackage ./scripts/dotnet-run.nix { })
   ];
   shellHook = ''
     export DOTNET_ROOT=${dotnet}
