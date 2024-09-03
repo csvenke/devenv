@@ -23,7 +23,6 @@
         {
           devShells = {
             dotnet = callPackage ./packages/dotnet { };
-            fnm-use = callPackage ./packages/fnm-use { };
             node = callPackage ./packages/node { };
             java = callPackage ./packages/java { };
             haskell = callPackage ./packages/haskell { };
