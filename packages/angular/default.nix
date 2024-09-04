@@ -1,8 +1,8 @@
-{ pkgs, language-servers }:
+{ pkgs }:
 
 pkgs.mkShell {
   packages = [
     pkgs.nodePackages."@angular/cli"
-    language-servers.packages.angular-language-server
+    pkgs.angular-language-server
   ];
 }

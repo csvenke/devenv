@@ -4,14 +4,20 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    language-servers.url = "git+https://git.sr.ht/~bwolf/language-servers.nix";
+    angular-language-server.url = "github:csvenke/angular-language-server-flake";
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs, language-servers, ... }:
+  outputs = inputs@{ flake-parts, nixpkgs, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = nixpkgs.lib.systems.flakeExposed;
-      perSystem = { pkgs, ... }:
+      perSystem = { pkgs, system, ... }:
         let
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              inputs.angular-language-server.overlays.default
+            ];
+          };
           inherit (pkgs) callPackage;
         in
         {
@@ -27,7 +33,7 @@
             java = callPackage ./packages/java { };
             haskell = callPackage ./packages/haskell { };
             python = callPackage ./packages/python { };
-            angular = callPackage ./packages/angular { inherit language-servers; };
+            angular = callPackage ./packages/angular { };
             rust = callPackage ./packages/rust { };
             gleam = callPackage ./packages/gleam { };
           };

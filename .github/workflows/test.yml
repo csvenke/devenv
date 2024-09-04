@@ -21,7 +21,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        language: [dotnet, gleam, haskell, java, node, python, rust]
+        language: [angular, dotnet, gleam, haskell, java, node, python, rust]
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
