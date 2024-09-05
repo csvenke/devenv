@@ -13,10 +13,10 @@ pkgs.mkShell {
     dotnet
     csharpier
     omnisharp-roslyn
-
-    (pkgs.callPackage ./scripts/dotnet-run.nix { })
   ];
   shellHook = ''
+    alias dotnet-run="nix run github:csvenke/tools#dotnet-run"
+
     export DOTNET_ROOT=${dotnet}
   '';
 }
