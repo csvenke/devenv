@@ -21,11 +21,6 @@
           inherit (pkgs) callPackage;
         in
         {
-          packages = {
-            format = callPackage ./tools/format { };
-            release = callPackage ./tools/release { };
-          };
-
           devShells = {
             dotnet = callPackage ./packages/dotnet { };
             fnm-use = callPackage ./packages/fnm-use { };
