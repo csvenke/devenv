@@ -11,7 +11,7 @@ pkgs.mkShell {
 
   shellHook = /* bash */ ''
     if [ -e .node-version ] || [ -e .nvmrc ]; then
-      eval "$(fnm env --use-on-cd)"
+      eval "$(fnm env)"
       fnm use --install-if-missing --silent-if-unchanged
     fi
   '';
