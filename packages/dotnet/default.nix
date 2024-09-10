@@ -15,8 +15,6 @@ pkgs.mkShell {
     omnisharp-roslyn
   ];
   shellHook = ''
-    alias dotnet-run="nix run github:csvenke/tools#dotnet-run"
-
     export DOTNET_ROOT=${dotnet}
   '';
 }
